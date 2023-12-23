@@ -9,10 +9,10 @@ from sklearn.metrics import accuracy_score
 from sklearn.linear_model import LogisticRegression
 
 #loading the saved models
-diabetes_model=pickle.load(open('C:/Users/User/Desktop/multiple diesease prediction system/saved models/diabetes_model.sav','rb'))
-heart_disease_model=pickle.load(open('C:/Users/User/Desktop/multiple diesease prediction system/saved models/heart_disease_model.sav','rb'))
-parkinson_disease_model=pickle.load(open('C:/Users/User/Desktop/multiple diesease prediction system/saved models/parkinsons_model.sav','rb'))
-breast_cancer_model=pickle.load(open('C:/Users/User/Desktop/multiple diesease prediction system/saved models/breast_cancer_model.sav','rb'))
+diabetes_model=pickle.load(open('diabetes_model.sav','rb'))
+heart_disease_model=pickle.load(open('heart_disease_model.sav','rb'))
+parkinson_disease_model=pickle.load(open('parkinsons_model.sav','rb'))
+breast_cancer_model=pickle.load(open('breast_cancer_model.sav','rb'))
 
 
 #sidebar for navigate
