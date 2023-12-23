@@ -9,15 +9,16 @@ from sklearn.metrics import accuracy_score
 from sklearn.linear_model import LogisticRegression
 
 #loading the saved models
-diabetes_model=pickle.load(open('diabetes_model.sav','rb'))
-heart_disease_model=pickle.load(open('heart_disease_model.sav','rb'))
-parkinson_disease_model=pickle.load(open('parkinsons_model.sav','rb'))
+diabetes_model=pickle.load(open('C:/Users/User/Desktop/multiple diesease prediction system/saved models/diabetes_model.sav','rb'))
+heart_disease_model=pickle.load(open('C:/Users/User/Desktop/multiple diesease prediction system/saved models/heart_disease_model.sav','rb'))
+parkinson_disease_model=pickle.load(open('C:/Users/User/Desktop/multiple diesease prediction system/saved models/parkinsons_model.sav','rb'))
+breast_cancer_model=pickle.load(open('C:/Users/User/Desktop/multiple diesease prediction system/saved models/breast_cancer_model.sav','rb'))
 
 
 #sidebar for navigate
 with st.sidebar:
 
-    selected=option_menu('Multiple Disease Prediction System',['Diabetes Prediction','Heart Disease Prediction','Parkinsons Prediction'],icons=['activity','heart','person'],default_index=0)
+    selected=option_menu('Multiple Disease Prediction System',['Diabetes Prediction','Heart Disease Prediction','Parkinsons Prediction','Breast_Cancer Classification'],icons=['activity','heart','person','arrow-right-circle-fill'],default_index=0)
 
 #diabetes Preiction page
 if(selected=='Diabetes Prediction'):
@@ -203,3 +204,118 @@ if(selected=='Parkinsons Prediction'):
             parkinsons_diagnosis = "The person does not have Parkinson's disease"
 
     st.success(parkinsons_diagnosis)
+
+if(selected=='Breast_Cancer Classification'):
+    st.title('Breast_Cancer Classification Using ML')
+
+
+    col1, col2, col3, col4, col5 = st.columns(5)
+
+    with col1:
+        radius_mean = st.number_input('radius mean')
+
+    with col2:
+        texture_mean = st.number_input('texture_mean')
+
+    with col3:
+        perimeter_mean = st.number_input('perimeter_mean')
+
+    with col4:
+        area_mean= st.number_input('area_mean')
+
+    with col5:
+        smoothness_mean= st.number_input('smoothness_mean')
+
+    with col1:
+        compactness_mean = st.number_input('compactness_mean')
+
+    with col2:
+        concavity_mean = st.number_input('concavity_mean')
+
+    with col3:
+        concavepoints_mean = st.number_input('concave points_mean')
+
+    with col4:
+        symmetry_mean = st.number_input('symmetry_mean')
+
+    with col5:
+        fractal_dimension_mean = st.number_input('fractal_dimension_mean')
+
+    with col1:
+        radius_se = st.number_input('radius_se')
+
+    with col2:
+        texture_se = st.number_input('texture_se')
+
+    with col3:
+        perimeter_se = st.number_input('perimeter_se')
+
+    with col4:
+        area_se = st.number_input('area_se')
+
+    with col5:
+        smoothness_se = st.number_input('smoothness_se')
+
+    with col1:
+        compactness_se = st.number_input('compactness_se')
+
+    with col2:
+        concavity_se = st.number_input('concavity_se')
+
+    with col3:
+
+        concavepoints_se = st.number_input('concave points_se')
+
+    with col4:
+        symmetry_se = st.number_input('symmetry_se')
+
+    with col5:
+
+        fractal_dimension_se = st.number_input('fractal_dimension_se')
+
+    with col1:
+
+        radius_worst = st.number_input('radius_worst')
+
+    with col2:
+
+        texture_worst = st.number_input('texture_worst')
+
+    with col3:
+        perimeter_worst = st.number_input('perimeter_worst')
+
+    with col4:
+        area_worst = st.number_input('area_worst')
+
+    with col5:
+        smoothness_worst = st.number_input('smoothness_worst')
+
+    with col1:
+        compactness_worst = st.number_input('compactness_worst')
+
+    with col2:
+        concavity_worst = st.number_input('concavity_worst')
+    with col3:
+        concavepoints_worst = st.number_input('concave points_worst')
+    with col4:
+        symmetry_worst = st.number_input('symmetry_worst')
+    with col5:
+        fractal_dimension_worst = st.number_input('fractal_dimension_worst')
+
+    # code for Prediction
+    cancer_diagnosis = ''
+
+    # creating a button for Prediction
+
+    if st.button('Breast Cancer Test Result'):
+        cancer_prediction = breast_cancer_model.predict(
+            [[radius_mean, texture_mean, perimeter_mean, area_mean, smoothness_mean, compactness_mean, concavity_mean, concavepoints_mean, symmetry_mean, fractal_dimension_mean, radius_se, texture_se, perimeter_se, area_se, smoothness_se, compactness_se, concavity_se, concavepoints_se, symmetry_se, fractal_dimension_se, radius_worst, texture_worst, perimeter_worst, area_worst, smoothness_worst, compactness_worst, concavity_worst, concavepoints_worst, symmetry_worst, fractal_dimension_worst]])
+
+        if (cancer_prediction[0] == 1):
+            cancer_diagnosis = 'The Breast Cancer is Benign'
+        else:
+            cancer_diagnosis = 'The Breast Cancer is Malignant'
+
+    st.success(cancer_diagnosis)
+
+
