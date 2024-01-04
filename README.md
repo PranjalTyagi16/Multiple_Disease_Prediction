@@ -1,6 +1,6 @@
 # Multiple Disease Prediction
 
-<img src="Assets/Working.gif" width="640" height="328" />
+<img src="Assets/gif/Working.gif" width="640" height="328" />
 
 > *You can view the working project [here](https://multiplediseaseprediction-tvhhw8v4dnekxmujhq3aqr.streamlit.app/).*
 
